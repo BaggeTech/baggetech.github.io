@@ -1,1 +1,714 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagge.Tech - AI Engineering & Technical Leadership</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --accent-primary: #ff6b35;
+            --accent-secondary: #ffd23f;
+            --accent-tertiary: #ff8a80;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #2a2a2a;
+            --gradient-primary: linear-gradient(135deg, #ffd23f 0%, #ff9a56 50%, #6D74FB 100%);
+            --gradient-secondary: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+            --gradient-sunrise: linear-gradient(135deg, #ffd23f 0%, #ff9a56 50%, #6D74FB 100%);
+            --nav-bg: rgba(10, 10, 10, 0.9);
+            --nav-bg-scrolled: rgba(10, 10, 10, 0.95);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-primary: #ffffff;
+                --bg-secondary: #fafafa;
+                --bg-tertiary: #f5f5f5;
+                --accent-primary: #e65100;
+                --accent-secondary: #f57f17;
+                --accent-tertiary: #d84315;
+                --text-primary: #1a1a1a;
+                --text-secondary: #4a4a4a;
+                --text-muted: #6a6a6a;
+                --border-color: #e0e0e0;
+                --gradient-primary: linear-gradient(135deg, #f57f17 0%, #e65100 50%, #5A61E6 100%);
+                --gradient-secondary: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+                --gradient-sunrise: linear-gradient(135deg, #f57f17 0%, #e65100 50%, #5A61E6 100%);
+                --nav-bg: rgba(255, 255, 255, 0.9);
+                --nav-bg-scrolled: rgba(255, 255, 255, 0.95);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-icon {
+            width: 64px;
+            height: 64px;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                radial-gradient(ellipse 800px 600px at 100% 0%, rgba(255, 210, 63, 0.6) 0%, rgba(255, 210, 63, 0.25) 20%, rgba(255, 210, 63, 0.1) 40%, transparent 60%),
+                linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+        }
+
+        @media (prefers-color-scheme: light) {
+            .hero {
+                background:
+                    radial-gradient(ellipse 800px 600px at 100% 0%, rgba(109, 116, 251, 0.15) 0%, rgba(255, 154, 86, 0.12) 30%, rgba(255, 210, 63, 0.08) 50%, transparent 70%),
+                    linear-gradient(135deg, #ffffff 0%, #fafafa 50%, #f5f5f5 100%);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: #6D74FB;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border: 2px solid #6D74FB;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #6D74FB;
+            color: #000000;
+            transform: translateY(-1px);
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            justify-items: center;
+        } */
+        .expertise-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+            justify-content: center;
+        }
+
+        .expertise-card {
+            flex: 1 1 300px;
+            /* Can grow, min width 300px */
+            max-width: 400px;
+            /* Prevents cards from getting too wide */
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            /* position: relative; */
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-sunrise);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .expertise-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .expertise-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .expertise-card:nth-child(1) .expertise-icon {
+            background: linear-gradient(135deg, #ffd23f 0%, #ff9a56 98%);
+        }
+
+        .expertise-card:nth-child(2) .expertise-icon {
+            background: linear-gradient(157deg, #ffd23f 0%, #ff9a56 95%);
+        }
+
+        .expertise-card:nth-child(3) .expertise-icon {
+            background: linear-gradient(180deg, #ffd23f 0%, #ff9a56 90%);
+        }
+
+        .expertise-card:nth-child(4) .expertise-icon {
+            background: linear-gradient(222deg, #ffd23f 0%, #ff9a56 90%);
+        }
+
+        .expertise-card:nth-child(5) .expertise-icon {
+            background: linear-gradient(225deg, #ffd23f 0%, #ff9a56 90%);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .expertise-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 6rem 0;
+            background: var(--bg-primary);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-sunrise);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 3rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            width: calc(50% - 2rem);
+            position: relative;
+        }
+
+        .timeline-marker {
+            width: 20px;
+            height: 20px;
+            background: #ffd23f;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            box-shadow: 0 0 0 4px var(--bg-primary);
+        }
+
+        .timeline-item:nth-child(1) .timeline-marker {
+            background: #ffd23f;
+        }
+
+        .timeline-item:nth-child(2) .timeline-marker {
+            background: #ffb147;
+        }
+
+        .timeline-item:nth-child(3) .timeline-marker {
+            background: #ff9a56;
+        }
+
+        .timeline-item:nth-child(4) .timeline-marker {
+            background: #e68865;
+        }
+
+        .timeline-item:nth-child(5) .timeline-marker {
+            background: #cc7674;
+        }
+
+        .timeline-item:nth-child(6) .timeline-marker {
+            background: #6D74FB;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #ff9a56;
+        }
+
+        .timeline-content .company {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(109, 116, 251, 0.1);
+            color: #6D74FB;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(109, 116, 251, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+            }
+
+            .timeline-marker {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/BaggeTech/assets/main/logo/bagge.tech.svg"
+                    alt="Bagge.Tech Logo" class="logo-icon">
+                <span>Bagge.Tech</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>AI Engineering & Technical Leadership</h1>
+                <p class="hero-subtitle">Principal Engineer building AI products and high-performing teams</p>
+                <p class="hero-description">
+                    Nearly a decade of experience scaling engineering teams and building end-to-end solutions at Meta,
+                    ThoughtWorks, and innovative startups.
+                    I help organizations launch products, optimize systems, and build high-performing engineering
+                    cultures.
+                </p>
+                <a href="#contact" class="cta-button">
+                    Let's Build Something Great
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise">
+        <div class="container">
+            <h2 class="section-title">Core Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">🧠</div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Building AI-powered insights platforms using LLMs for business decision-making. Computer vision
+                        pipelines, ML system architecture, streaming analytics, and performance optimization for
+                        production ML workloads.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">👥</div>
+                    <h3>Technical Leadership</h3>
+                    <p>Building and scaling engineering teams from startup to enterprise. Mentoring senior engineers,
+                        establishing technical culture, and driving architectural decisions.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">💻</div>
+                    <h3>Product Engineering</h3>
+                    <p>End-to-end product development from ideation to scale. React/React Native, GraphQL, distributed
+                        systems, and modern DevOps practices.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">📈</div>
+                    <h3>Strategic Consulting</h3>
+                    <p>Technology strategy, architecture reviews, and organizational transformation. Helping startups
+                        and enterprises make informed technical decisions.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">🔗</div>
+                    <h3>Distributed Systems</h3>
+                    <p>Event-sourcing architectures, high-availability systems, and data consistency patterns. Building
+                        resilient platforms that handle complex state management and ensure data integrity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Staff Engineer & Growth Team Lead</h3>
+                        <div class="company">Ebury</div>
+                        <p>Leading Growth Tech Team building AI-powered tools and insights for Business Developers and
+                            Brokers. Successfully scaled team from 2 to 10+ engineers in 5 months while delivering
+                            LLM-based insights platform.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Large Language Models</span>
+                            <span class="tech-tag">Generative AI</span>
+                            <span class="tech-tag">Speech-to-text</span>
+                            <span class="tech-tag">Team Scaling</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Computer Vision Team Lead</h3>
+                        <div class="company">Satis.AI</div>
+                        <p>Led the development of real-time computer vision tracking and streaming pipeline systems.
+                            Optimized Python-based multiprocessing architecture for high-performance video analytics.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Multiprocessing</span>
+                            <span class="tech-tag">Performance Optimization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Software Engineer</h3>
+                        <div class="company">Meta (Facebook)</div>
+                        <p>Led development of OKR/Goal tracking tools and automated reporting systems. Built scalable
+                            React applications with Relay Modern and GraphQL serving Meta employees and saving the
+                            organisation millions of $ every year.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Hack</span>
+                            <span class="tech-tag">GraphQL</span>
+                            <span class="tech-tag">Relay</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Developer - Healthcare Platform</h3>
+                        <div class="company">Kooth Digital Health</div>
+                        <p>Built event-sourced backend for Soluna mental health platform achieving 4.9/5 App Store
+                            rating. Ensured high data integrity for sensitive healthcare data using distributed systems
+                            architecture.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Event-Sourcing</span>
+                            <span class="tech-tag">Distributed Systems</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Founding Engineer</h3>
+                        <div class="company">Kroo Bank</div>
+                        <p>Part of initial technical team building mobile banking platform. Developed React Native
+                            applications and banking integrations with robust backend systems.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Clojure</span>
+                            <span class="tech-tag">FinTech</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Software Consultant</h3>
+                        <div class="company">ThoughtWorks</div>
+                        <p>Full-stack web development across multiple client engagements. Specialized in agile
+                            methodologies, clean architecture, and client technical mentoring.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Full Stack</span>
+                            <span class="tech-tag">Agile</span>
+                            <span class="tech-tag">Architecture</span>
+                            <span class="tech-tag">Consulting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Ready to Collaborate</h2>
+                <p>
+                    Looking for a technical leader to help scale your engineering organization,
+                    build AI-powered products, or provide strategic technical guidance?
+                    Let's discuss how we can work together.
+                </p>
+                <a href="https://forms.gle/j3twWgQCrG6oxkPT7" class="cta-button" target="_blank">
+                    Start a Conversation
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'var(--nav-bg-scrolled)';
+            } else {
+                nav.style.background = 'var(--nav-bg)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.expertise-card, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
