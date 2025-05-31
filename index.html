@@ -153,9 +153,22 @@
 
         .hero-subtitle {
             font-size: 1.5rem;
+            font-weight: 500;
             color: var(--text-secondary);
             margin-bottom: 2rem;
             max-width: 600px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .philosophy-separator {
+            width: 8px;
+            height: 8px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .hero-description {
@@ -493,15 +506,21 @@
         <div class="container">
             <div class="hero-content">
                 <h1>AI Engineering & Technical Leadership</h1>
-                <p class="hero-subtitle">Principal Engineer building AI products and high-performing teams</p>
+                <p class="hero-subtitle">
+                    <span>User first</span>
+                    <span class="philosophy-separator"></span>
+                    <span>Tech second</span>
+                    <span class="philosophy-separator"></span>
+                    <span>Right tech for the right job</span>
+                </p>
                 <p class="hero-description">
-                    Over a decade scaling engineering teams and building cutting-edge solutions at Meta, ThoughtWorks,
+                    Over a decade of building products and engineering teams at Meta, ThoughtWorks,
                     and innovative startups. Currently developing next-generation sleep technology and AI-powered
-                    business insights, with expertise spanning fullstack product development, computer vision and
-                    distributed systems.
+                    business insights platforms, with expertise spanning fullstack product development, generative AI,
+                    distributed systems and computer vision.
                 </p>
                 <a href="#contact" class="cta-button">
-                    Let's Build Something Great
+                    Let's build something great
                     <span>→</span>
                 </a>
             </div>
@@ -525,15 +544,6 @@
                 </div>
                 <div class="expertise-card">
                     <div class="expertise-icon">
-                        <img src="https://raw.githubusercontent.com/BaggeTech/assets/main/icons/sprout.svg"
-                            alt="Leadership Icon">
-                    </div>
-                    <h3>Technical Leadership</h3>
-                    <p>Building and scaling engineering teams from startup to enterprise. Mentoring senior engineers,
-                        establishing technical culture, and driving architectural decisions.</p>
-                </div>
-                <div class="expertise-card">
-                    <div class="expertise-icon">
                         <img src="https://raw.githubusercontent.com/BaggeTech/assets/main/icons/code.svg"
                             alt="Product Engineering Icon">
                     </div>
@@ -543,21 +553,30 @@
                 </div>
                 <div class="expertise-card">
                     <div class="expertise-icon">
-                        <img src="https://raw.githubusercontent.com/BaggeTech/assets/main/icons/chart-spline.svg"
-                            alt="Strategic Consulting Icon">
-                    </div>
-                    <h3>Strategic Consulting</h3>
-                    <p>Technology strategy, architecture reviews, and organizational transformation. Helping startups
-                        and enterprises make informed technical decisions.</p>
-                </div>
-                <div class="expertise-card">
-                    <div class="expertise-icon">
                         <img src="https://raw.githubusercontent.com/BaggeTech/assets/main/icons/cpu.svg"
                             alt="Distributed Systems Icon">
                     </div>
                     <h3>Distributed Systems</h3>
                     <p>Event-sourcing architectures, high-availability systems, and data consistency patterns. Building
                         resilient platforms that handle complex state management and ensure data integrity.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <img src="https://raw.githubusercontent.com/BaggeTech/assets/main/icons/sprout.svg"
+                            alt="Leadership Icon">
+                    </div>
+                    <h3>Technical Leadership</h3>
+                    <p>Building and scaling engineering teams from startup to enterprise. Mentoring senior engineers,
+                        establishing technical culture, and driving architectural decisions.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <img src="https://raw.githubusercontent.com/BaggeTech/assets/main/icons/chart-spline.svg"
+                            alt="Strategic Consulting Icon">
+                    </div>
+                    <h3>Tech & Product Strategy</h3>
+                    <p>Tech strategy, product strategy & architecture reviews. Helping startups
+                        and enterprises make informed technical decisions.</p>
                 </div>
             </div>
         </div>
