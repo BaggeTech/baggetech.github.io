@@ -468,8 +468,16 @@
                 display: none;
             }
 
+            .hero {
+                padding-top: 7.5rem;
+            }
+
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
             }
 
             .timeline::before {
@@ -492,6 +500,12 @@
 
             .timeline-marker {
                 left: 20px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
         }
     </style>
