@@ -21,6 +21,7 @@
             --text-secondary: #e0e0e0;
             --text-muted: #a0a0a0;
             --border-color: #2a2a2a;
+            --gradient-logo: linear-gradient(135deg, #ffd23f 0%, #ff9a56 60%, #6D74FB 115%);
             --gradient-primary: linear-gradient(135deg, #ffd23f 0%, #ff9a56 50%, #6D74FB 100%);
             --gradient-secondary: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
             --gradient-sunrise: linear-gradient(135deg, #ffd23f 0%, #ff9a56 50%, #6D74FB 100%);
@@ -40,6 +41,7 @@
                 --text-secondary: #4a4a4a;
                 --text-muted: #6a6a6a;
                 --border-color: #e0e0e0;
+                --gradient-logo: linear-gradient(135deg, #f57f17 0%, #e65100 60%, #5A61E6 115%);
                 --gradient-primary: linear-gradient(135deg, #f57f17 0%, #e65100 50%, #5A61E6 100%);
                 --gradient-secondary: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
                 --gradient-sunrise: linear-gradient(135deg, #f57f17 0%, #e65100 50%, #5A61E6 100%);
@@ -91,18 +93,21 @@
             display: flex;
             align-items: center;
             gap: 0.25rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .logo-icon {
             width: 64px;
             height: 64px;
             flex-shrink: 0;
+        }
+
+        .logo-text {
+            background: var(--gradient-logo);
+            font-size: 1.5rem;
+            font-weight: bold;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
@@ -499,7 +504,7 @@
             <div class="logo">
                 <img src="https://raw.githubusercontent.com/BaggeTech/assets/main/logo/bagge.tech.svg"
                     alt="Bagge.Tech Logo" class="logo-icon">
-                <span>Bagge.Tech</span>
+                <span class="logo-text">Bagge.Tech</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -529,7 +534,7 @@
                     distributed systems and computer vision.
                 </p>
                 <a href="#contact" class="cta-button">
-                    Let's build something great
+                    Get in touch
                     <span>→</span>
                 </a>
             </div>
@@ -686,9 +691,9 @@
                             applications and banking integrations with robust backend systems.</p>
                         <div class="tech-stack">
                             <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Node.js</span>
                             <span class="tech-tag">Clojure</span>
-                            <span class="tech-tag">FinTech</span>
+                            <span class="tech-tag">Distributed Systems</span>
+                            <span class="tech-tag">Event-Sourcing</span>
                         </div>
                     </div>
                 </div>
@@ -700,9 +705,9 @@
                         <p>Full-stack web development across multiple client engagements. Specialized in agile
                             methodologies, clean architecture, and client technical mentoring.</p>
                         <div class="tech-stack">
+                            <span class="tech-tag">Extreme Programming</span>
                             <span class="tech-tag">Full Stack</span>
-                            <span class="tech-tag">Agile</span>
-                            <span class="tech-tag">Architecture</span>
+                            <span class="tech-tag">Distributed Systems</span>
                             <span class="tech-tag">Consulting</span>
                         </div>
                     </div>
